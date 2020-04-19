@@ -5,20 +5,20 @@
         "php": "^7.2",
         "nette/utils": "^3.1"
     },
+    "require-dev": {
+        "symplify/monorepo-builder": "^7.2"
+    },
     "autoload": {
         "psr-4": {
-            "Migrify\\MigrationArtefact\\PhpHtmlToSymfonyController\\": "package/php-html-to-symfony-controller/src"
+            "Migrify\\MigrationArtefact\\SpaghettiToSymfonyController\\": "package/spaghetti-to-symfony-controller/src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Migrify\\MigrationArtefact\\PhpHtmlToSymfonyController\\Tests\\": "package/php-html-to-symfony-controller/tests"
+            "Migrify\\MigrationArtefact\\SpaghettiToSymfonyController\\Tests\\": "package/spaghetti-to-symfony-controller/tests"
         }
     },
     "config": {
         "sort-packages": true
-    },
-    "require-dev": {
-        "symplify/monorepo-builder": "^7.2"
     }
 }
