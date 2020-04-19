@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MigrationArtefact\PhpHtmlToSymfonyController\Rector\DataCollector;
+namespace Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\DataCollector;
 
 use Symplify\SmartFileSystem\SmartFileInfo;
 

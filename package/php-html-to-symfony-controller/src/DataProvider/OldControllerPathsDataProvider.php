@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MigrationArtefact\PhpHtmlToSymfonyController\Rector\DataProvider;
+namespace Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\DataProvider;
 
-use MigrationArtefact\PhpHtmlToSymfonyController\Rector\Rector\FunctionsToSymfonyControllerFileSystemRector;
+use Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Rector\FunctionsToSymfonyControllerFileSystemRector;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;

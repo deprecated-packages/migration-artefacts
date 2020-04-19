@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace MigrationArtefact\PhpHtmlToSymfonyController\Rector\Rector;
+namespace Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Rector;
 
-use MigrationArtefact\PhpHtmlToSymfonyController\Rector\Controller\OldControllerDetector;
-use MigrationArtefact\PhpHtmlToSymfonyController\Rector\DataCollector\OldControllerFileInfoCollector;
-use MigrationArtefact\PhpHtmlToSymfonyController\Rector\Naming\ControllerNaming;
-use MigrationArtefact\PhpHtmlToSymfonyController\Rector\NodeFactory\ControllerFactory;
-use MigrationArtefact\PhpHtmlToSymfonyController\Rector\Twig\ControllerTwigTemplateFactory;
+use Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Controller\OldControllerDetector;
+use Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\DataCollector\OldControllerFileInfoCollector;
+use Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Naming\ControllerNaming;
+use Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\NodeFactory\ControllerFactory;
+use Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Twig\ControllerTwigTemplateFactory;
 use Nette\Utils\FileSystem;
 use Rector\Core\RectorDefinition\RectorDefinition;
 use Rector\FileSystemRector\Rector\AbstractFileSystemRector;
@@ -19,7 +19,7 @@ use Symplify\SmartFileSystem\SmartFileInfo;
  *
  * Goal https://github.com/symfony/demo/blob/master/src/Controller/BlogController.php
  *
- * @see \MigrationArtefact\PhpHtmlToSymfonyController\Rector\Tests\Rector\FunctionsToSymfonyControllerFileSystemRector\FunctionsToSymfonyControllerFileSystemRectorTest
+ * @see \Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Tests\Rector\FunctionsToSymfonyControllerFileSystemRector\FunctionsToSymfonyControllerFileSystemRectorTest
  */
 final class FunctionsToSymfonyControllerFileSystemRector extends AbstractFileSystemRector
 {

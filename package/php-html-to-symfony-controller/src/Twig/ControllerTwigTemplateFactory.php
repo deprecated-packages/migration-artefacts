@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MigrationArtefact\PhpHtmlToSymfonyController\Rector\Twig;
+namespace Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Twig;
 
-use MigrationArtefact\PhpHtmlToSymfonyController\Rector\Naming\ControllerNaming;
+use Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Naming\ControllerNaming;
 use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class ControllerTwigTemplateFactory

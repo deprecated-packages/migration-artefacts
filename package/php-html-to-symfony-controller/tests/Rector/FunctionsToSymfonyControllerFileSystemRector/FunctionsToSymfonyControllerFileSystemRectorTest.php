@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace MigrationArtefact\PhpHtmlToSymfonyController\Rector\Tests\Rector\FunctionsToSymfonyControllerFileSystemRector;
+namespace Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Tests\Rector\FunctionsToSymfonyControllerFileSystemRector;
 
 use Iterator;
-use MigrationArtefact\PhpHtmlToSymfonyController\Rector\Rector\FunctionsToSymfonyControllerFileSystemRector;
+use Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Rector\FunctionsToSymfonyControllerFileSystemRector;
 use Nette\Utils\FileSystem;
 use Rector\Core\Testing\PHPUnit\AbstractFileSystemRectorTestCase;
 

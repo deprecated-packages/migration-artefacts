@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MigrationArtefact\PhpHtmlToSymfonyController\Rector\Rector;
+namespace Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Rector;
 
-use MigrationArtefact\PhpHtmlToSymfonyController\Rector\DataProvider\OldControllerPathsDataProvider;
+use Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\DataProvider\OldControllerPathsDataProvider;
 use Nette\Utils\Strings;
 use PhpParser\Node;
 use PhpParser\Node\Scalar\String_;

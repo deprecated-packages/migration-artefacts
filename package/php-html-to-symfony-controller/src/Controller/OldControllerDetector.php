@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MigrationArtefact\PhpHtmlToSymfonyController\Rector\Controller;
+namespace Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Controller;
 
 use Nette\Utils\Strings;
 use Symplify\SmartFileSystem\SmartFileInfo;

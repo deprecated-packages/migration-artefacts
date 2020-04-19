@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MigrationArtefact\PhpHtmlToSymfonyController\Rector\ValueObject;
+namespace Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\ValueObject;
 
 final class SymfonyClass
 {

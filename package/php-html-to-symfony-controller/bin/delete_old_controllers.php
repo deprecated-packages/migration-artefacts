@@ -1,6 +1,6 @@
 <?php
 
-use MigrationArtefact\PhpHtmlToSymfonyController\Rector\DataProvider\OldControllerPathsDataProvider;
+use Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\DataProvider\OldControllerPathsDataProvider;
 use Nette\Utils\FileSystem;
 use Symfony\Component\Finder\Finder;
 use Symplify\SmartFileSystem\Finder\FinderSanitizer;

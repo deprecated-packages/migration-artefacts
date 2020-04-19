@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MigrationArtefact\PhpHtmlToSymfonyController\Rector\NodeFactory;
+namespace Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\NodeFactory;
 
-use MigrationArtefact\PhpHtmlToSymfonyController\Rector\ValueObject\SymfonyClass;
+use Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\ValueObject\SymfonyClass;
 use PhpParser\Node;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\Assign;

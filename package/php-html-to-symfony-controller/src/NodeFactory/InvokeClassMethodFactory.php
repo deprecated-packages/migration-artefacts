@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MigrationArtefact\PhpHtmlToSymfonyController\Rector\NodeFactory;
+namespace Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\NodeFactory;
 
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\MethodCall;

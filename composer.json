@@ -2,19 +2,23 @@
     "name": "migrify/migration-artefacts",
     "license": "MIT",
     "require": {
-        "php": "^7.2"
+        "php": "^7.2",
+        "nette/utils": "^3.1"
     },
     "autoload": {
         "psr-4": {
-            "MigrationArtefact\\PhpHtmlToSymfonyController\\": "package/php-html-to-symfony-controller/src"
+            "Migrify\\MigrationArtefact\\PhpHtmlToSymfonyController\\": "package/php-html-to-symfony-controller/src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MigrationArtefact\\PhpHtmlToSymfonyController\\Tests\\": "package/php-html-to-symfony-controller/tests"
+            "Migrify\\MigrationArtefact\\PhpHtmlToSymfonyController\\Tests\\": "package/php-html-to-symfony-controller/tests"
         }
     },
     "config": {
         "sort-packages": true
+    },
+    "require-dev": {
+        "symplify/monorepo-builder": "^7.2"
     }
 }

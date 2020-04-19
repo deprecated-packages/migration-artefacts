@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MigrationArtefact\PhpHtmlToSymfonyController\Rector\Naming;
+namespace Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\Naming;
 
 use Rector\Core\Util\RectorStrings;
 use Symplify\SmartFileSystem\SmartFileInfo;

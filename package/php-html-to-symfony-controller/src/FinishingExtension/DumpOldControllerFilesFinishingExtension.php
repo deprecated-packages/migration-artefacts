@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MigrationArtefact\PhpHtmlToSymfonyController\Rector\FinishingExtension;
+namespace Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\FinishingExtension;
 
-use MigrationArtefact\PhpHtmlToSymfonyController\Rector\DataCollector\OldControllerFileInfoCollector;
+use Migrify\MigrationArtefact\PhpHtmlToSymfonyController\Rector\DataCollector\OldControllerFileInfoCollector;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Rector\Core\Contract\Extension\FinishingExtensionInterface;
