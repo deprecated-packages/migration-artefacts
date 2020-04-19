@@ -1,0 +1,25 @@
+includes:
+    - 'vendor/symplify/phpstan-extensions/config/config.neon'
+
+parameters:
+    level: max
+
+    # to allow installing with various phsptan versions without reporting old errors here
+    reportUnmatchedIgnoredErrors: false
+
+    paths:
+        - packages
+
+    excludes_analyse:
+        - "*/Source/*"
+        - "*/Expected/*"
+        - "packages/spaghetti-to-symfony-controller/bin/delete_old_controllers.php"
+        - "packages/spaghetti-to-symfony-controller/bin/replace_old_paths_with_routes.php"
+
+    ignoreErrors:
+        - '#Method Migrify\\MigrationArtefact\\SpaghettiToSymfonyController\\NodeFactory\\NamespaceFactory\:\:createNamespaceFromClass\(\) should return PhpParser\\Node\\Stmt\\Namespace_ but returns PhpParser\\Node#'
+        - '#Binary operation "\-" between int<1, max\>\|int<min, \-1\>\|string and 1 results in an error#'
+        - '#Offset (.*?) does not exist on array\|null#'
+        - '#Method Migrify\\MigrationArtefact\\SpaghettiToSymfonyController\\DataProvider\\OldControllerPathsDataProvider\:\:ensureHasData\(\) has parameter \$data with no value type specified in iterable type array#'
+        - '#Method Migrify\\MigrationArtefact\\SpaghettiToSymfonyController\\Tests\\Rector\\FunctionsToSymfonyControllerFileSystemRector\\FunctionsToSymfonyControllerFileSystemRectorTest\:\:provideData\(\) return type has no value type specified in iterable type Iterator#'
+        - '#Method Migrify\\MigrationArtefact\\SpaghettiToSymfonyController\\DataProvider\\OldControllerPathsDataProvider\:\:provide\(\) return type has no value type specified in iterable type array#'

@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    Migrify\MigrationArtefact\SpaghettiToSymfonyController\:
+        resource: '../src'
+        exclude:
+            - '../src/ValueObject/*'
+            - '../src/Rector/**/*Rector.php'
