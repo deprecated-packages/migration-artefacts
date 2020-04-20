@@ -8,4 +8,3 @@ services:
         resource: '../src'
         exclude:
             - '../src/ValueObject/*'
-            - '../src/Rector/**/*Rector.php'

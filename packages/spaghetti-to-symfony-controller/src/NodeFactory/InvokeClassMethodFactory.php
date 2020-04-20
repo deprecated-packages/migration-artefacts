@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace Migrify\MigrationArtefact\SpaghettiToSymfonyController\NodeFactory;
 
 use PhpParser\Node\Arg;
+use PhpParser\Node\Expr\Array_;
+use PhpParser\Node\Expr\ArrayItem;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\Variable;
+use PhpParser\Node\Identifier;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Return_;
@@ -22,12 +25,27 @@ final class InvokeClassMethodFactory extends AbstractControllerActionClassMethod
 
     private function createReturnThisRenderMethodCall(string $routePath): Return_
     {
-        $templateName = 'controller/' . $routePath . '.twig';
-        $templateNameString = new String_($templateName);
         $thisVariable = new Variable('this');
-
-        $renderMethodCall = new MethodCall($thisVariable, 'render', [new Arg($templateNameString)]);
+        $args = $this->createRenderMethodArgs($routePath);
+        $renderMethodCall = new MethodCall($thisVariable, 'render', $args);
 
         return new Return_($renderMethodCall);
+    }
+
+    /**
+     * @return Arg[]
+     */
+    private function createRenderMethodArgs(string $routePath): array
+    {
+        $templateNameString = new String_('controller/' . $routePath . '.twig');
+
+        $thisVariable = new Variable('this');
+        $createContentMethodCall = new MethodCall($thisVariable, new Identifier('createContent'));
+
+        // ['content' => $this->createContent()]
+        $arrayItem = new ArrayItem($createContentMethodCall, new String_('content'));
+        $array = new Array_([$arrayItem]);
+
+        return [new Arg($templateNameString), new Arg($array)];
     }
 }

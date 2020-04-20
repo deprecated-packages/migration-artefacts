@@ -11,17 +11,14 @@ final class CeninyNewController extends \Symfony\Bundle\FrameworkBundle\Controll
      */
     public function __invoke(): \Symfony\Component\HttpFoundation\Response
     {
-        return $this->render('controller/ceniny_new.twig');
+        return $this->render('controller/ceniny_new.twig', ['content' => $this->createContent()]);
     }
-    /**
-     * @Route(path="ceniny_new_content", name="ceniny_new_content")
-     */
-    public function content(): \Symfony\Component\HttpFoundation\Response
+    private function createContent(): string
     {
         ob_start();
         echo 1;
         $content = (string) ob_get_contents();
         ob_end_clean();
-        return new \Symfony\Component\HttpFoundation\Response($content);
+        return $content;
     }
 }
