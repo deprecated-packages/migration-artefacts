@@ -8,7 +8,6 @@ use Migrify\MigrationArtefact\SpaghettiToSymfonyController\Controller\OldControl
 use Migrify\MigrationArtefact\SpaghettiToSymfonyController\DataCollector\OldControllerFileInfoCollector;
 use Migrify\MigrationArtefact\SpaghettiToSymfonyController\Naming\ControllerNaming;
 use Migrify\MigrationArtefact\SpaghettiToSymfonyController\NodeFactory\ControllerFactory;
-use Migrify\MigrationArtefact\SpaghettiToSymfonyController\Twig\ControllerTwigTemplateFactory;
 use Nette\Utils\FileSystem;
 use Rector\Core\RectorDefinition\RectorDefinition;
 use Rector\FileSystemRector\Rector\AbstractFileSystemRector;
@@ -19,10 +18,21 @@ use Symplify\SmartFileSystem\SmartFileInfo;
  *
  * Goal https://github.com/symfony/demo/blob/master/src/Controller/BlogController.php
  *
- * @see \Migrify\MigrationArtefact\SpaghettiToSymfonyController\Tests\FunctionsToSymfonyControllerFileSystemRector\FunctionsToSymfonyControllerFileSystemRectorTest
+ * @see \Migrify\MigrationArtefact\SpaghettiToSymfonyController\Tests\Rector\FunctionsToSymfonyControllerFileSystemRector\FunctionsToSymfonyControllerFileSystemRectorTest
  */
 final class FunctionsToSymfonyControllerFileSystemRector extends AbstractFileSystemRector
 {
+    /**
+     * @var string
+     */
+    private const TEMPLATE_TEMPLATE = <<<'CODE_SAMPLE'
+{% extends "base.twig" %}
+
+{% block main %}
+    {{ content }}
+{% endblock %}
+CODE_SAMPLE;
+
     /**
      * @var OldControllerDetector
      */
@@ -32,11 +42,6 @@ final class FunctionsToSymfonyControllerFileSystemRector extends AbstractFileSys
      * @var ControllerFactory
      */
     private $controllerFactory;
-
-    /**
-     * @var ControllerTwigTemplateFactory
-     */
-    private $controllerTwigTemplateFactory;
 
     /**
      * @var ControllerNaming
@@ -51,13 +56,11 @@ final class FunctionsToSymfonyControllerFileSystemRector extends AbstractFileSys
     public function __construct(
         OldControllerDetector $oldControllerDetector,
         ControllerFactory $controllerFactory,
-        ControllerTwigTemplateFactory $controllerTwigTemplateFactory,
         ControllerNaming $controllerNaming,
         OldControllerFileInfoCollector $oldControllerFileInfoCollector
     ) {
         $this->oldControllerDetector = $oldControllerDetector;
         $this->controllerFactory = $controllerFactory;
-        $this->controllerTwigTemplateFactory = $controllerTwigTemplateFactory;
         $this->controllerNaming = $controllerNaming;
         $this->oldControllerFileInfoCollector = $oldControllerFileInfoCollector;
     }
@@ -94,7 +97,7 @@ final class FunctionsToSymfonyControllerFileSystemRector extends AbstractFileSys
     private function createAndPrintTemplate(SmartFileInfo $smartFileInfo): void
     {
         $templateFilePath = $this->createTemplateFilePath($smartFileInfo);
-        $templateContent = $this->controllerTwigTemplateFactory->create($smartFileInfo);
+        $templateContent = self::TEMPLATE_TEMPLATE . PHP_EOL;
 
         FileSystem::write($templateFilePath, $templateContent);
     }

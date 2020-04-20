@@ -25,7 +25,7 @@ final class ControllerClassFactory
     /**
      * @var ContentClassMethodFactory
      */
-    private $contentClassMethodFactory;
+    private $getContentClassMethodFactory;
 
     public function __construct(
         BuilderFactory $builderFactory,
@@ -34,7 +34,7 @@ final class ControllerClassFactory
     ) {
         $this->builderFactory = $builderFactory;
         $this->invokeClassMethodFactory = $invokeClassMethodFactory;
-        $this->contentClassMethodFactory = $contentClassMethodFactory;
+        $this->getContentClassMethodFactory = $contentClassMethodFactory;
     }
 
     /**
@@ -48,7 +48,7 @@ final class ControllerClassFactory
 
         $classStmts = [];
         $classStmts[] = $this->invokeClassMethodFactory->create($routePath);
-        $classStmts[] = $this->contentClassMethodFactory->create($nodes, $routePath);
+        $classStmts[] = $this->getContentClassMethodFactory->create($nodes);
 
         $controllerClassBuilder->addStmts($classStmts);
 

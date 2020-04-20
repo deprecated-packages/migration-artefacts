@@ -4,14 +4,15 @@
     "require": {
         "php": "^7.2",
         "nette/utils": "^3.1",
-        "rector/rector": "^0.7.16",
-        "symplify/easy-coding-standard": "^7.2"
+        "rector/rector": "^0.7.16"
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.12.18",
-        "phpunit/phpunit": "^9.1",
+        "phpstan/phpstan": "^0.12.19",
+        "phpunit/phpunit": "^8.4|^9.1",
+        "symplify/easy-coding-standard": "^7.2",
         "symplify/monorepo-builder": "^7.2",
-        "symplify/phpstan-extensions": "^7.2"
+        "symplify/phpstan-extensions": "^7.2",
+        "slevomat/coding-standard": "6.2.*"
     },
     "autoload": {
         "psr-4": {

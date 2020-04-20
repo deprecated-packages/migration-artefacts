@@ -53,7 +53,7 @@ abstract class AbstractControllerActionClassMethodFactory
     ): ClassMethod {
         $methodBuilder = $this->builderFactory->method($name);
         $methodBuilder->makePublic();
-        $methodBuilder->setReturnType(new FullyQualified(SymfonyClass::RESPONSE_CLASS, ));
+        $methodBuilder->setReturnType(new FullyQualified(SymfonyClass::RESPONSE_CLASS));
         $methodBuilder->addStmts($nodes);
 
         $classMethod = $methodBuilder->getNode();
@@ -61,6 +61,20 @@ abstract class AbstractControllerActionClassMethodFactory
         $this->addSymfonyRouteAnnotation($classMethod, $routePath);
 
         return $classMethod;
+    }
+
+    /**
+     * @param Node[] $nodes
+     */
+    protected function createPrivateClassMethodWithStmts(string $name, array $nodes, string $returnType): ClassMethod
+    {
+        $methodBuilder = $this->builderFactory->method($name);
+        $methodBuilder->makePrivate();
+
+        $methodBuilder->setReturnType($returnType);
+        $methodBuilder->addStmts($nodes);
+
+        return $methodBuilder->getNode();
     }
 
     private function addSymfonyRouteAnnotation(ClassMethod $classMethod, string $routePath): void
