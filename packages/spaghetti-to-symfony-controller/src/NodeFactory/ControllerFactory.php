@@ -91,34 +91,6 @@ final class ControllerFactory
     }
 
     /**
-     * @param Node[] $nodes
-     * @return Use_[]
-     */
-    private function decoupleUseImports(array $nodes): array
-    {
-        $useNodes = [];
-        $this->callableNodeTraverser->traverseNodesWithCallable($nodes, function (Node $node) use (&$useNodes) {
-            if (! $node instanceof Use_) {
-                return null;
-            }
-
-            // needs to be cloned so it's not removed
-            $useNodes[] = clone $node;
-            $this->nodesToRemoveCollector->addNodeToRemove($node);
-
-            return null;
-        });
-
-        return $useNodes;
-    }
-
-    private function createUse(string $useImport): Use_
-    {
-        $useRouteImport = new UseUse(new Name($useImport));
-        return new Use_([$useRouteImport]);
-    }
-
-    /**
      * Remove: require "jadro_composer.php";
      * @param Node[] $nodes
      */
@@ -173,6 +145,34 @@ final class ControllerFactory
         }
 
         return $nodes;
+    }
+
+    /**
+     * @param Node[] $nodes
+     * @return Use_[]
+     */
+    private function decoupleUseImports(array $nodes): array
+    {
+        $useNodes = [];
+        $this->callableNodeTraverser->traverseNodesWithCallable($nodes, function (Node $node) use (&$useNodes) {
+            if (! $node instanceof Use_) {
+                return null;
+            }
+
+            // needs to be cloned so it's not removed
+            $useNodes[] = clone $node;
+            $this->nodesToRemoveCollector->addNodeToRemove($node);
+
+            return null;
+        });
+
+        return $useNodes;
+    }
+
+    private function createUse(string $useImport): Use_
+    {
+        $useRouteImport = new UseUse(new Name($useImport));
+        return new Use_([$useRouteImport]);
     }
 
     private function isExpressionWithNodeType(Node $lastNode, string $nodeType): bool

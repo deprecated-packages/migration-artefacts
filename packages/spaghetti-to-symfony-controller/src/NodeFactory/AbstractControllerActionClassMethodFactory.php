@@ -63,13 +63,13 @@ abstract class AbstractControllerActionClassMethodFactory
         return $classMethod;
     }
 
-    private function addSymfonyRouteAnnotation(ClassMethod $invokeMethod, string $routePath): void
+    private function addSymfonyRouteAnnotation(ClassMethod $classMethod, string $routePath): void
     {
-        $this->phpDocInfoFactory->createFromNode($invokeMethod);
+        $this->phpDocInfoFactory->createFromNode($classMethod);
 
         $symfonyRouteTagValueNode = new SymfonyRouteTagValueNode($routePath, [], $routePath);
         $this->implicitToExplicitRoutingAnnotationDecorator->decorateClassMethodWithRouteAnnotation(
-            $invokeMethod,
+            $classMethod,
             $symfonyRouteTagValueNode
         );
     }

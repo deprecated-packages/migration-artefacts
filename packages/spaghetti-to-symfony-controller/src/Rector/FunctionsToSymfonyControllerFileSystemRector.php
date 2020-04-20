@@ -91,20 +91,20 @@ final class FunctionsToSymfonyControllerFileSystemRector extends AbstractFileSys
         $this->printNewNodesToFilePath([$controller], $controllerFilePath);
     }
 
-    private function createControllerFilePath(SmartFileInfo $smartFileInfo): string
-    {
-        $controllerDirectory = dirname($smartFileInfo->getRealPath()) . '/Symfony/Controller';
-        $controllerClassName = $this->controllerNaming->createControllerClassName($smartFileInfo);
-
-        return $controllerDirectory . '/' . $controllerClassName . '.php';
-    }
-
     private function createAndPrintTemplate(SmartFileInfo $smartFileInfo): void
     {
         $templateFilePath = $this->createTemplateFilePath($smartFileInfo);
         $templateContent = $this->controllerTwigTemplateFactory->create($smartFileInfo);
 
         FileSystem::write($templateFilePath, $templateContent);
+    }
+
+    private function createControllerFilePath(SmartFileInfo $smartFileInfo): string
+    {
+        $controllerDirectory = dirname($smartFileInfo->getRealPath()) . '/Symfony/Controller';
+        $controllerClassName = $this->controllerNaming->createControllerClassName($smartFileInfo);
+
+        return $controllerDirectory . '/' . $controllerClassName . '.php';
     }
 
     private function createTemplateFilePath(SmartFileInfo $smartFileInfo): string

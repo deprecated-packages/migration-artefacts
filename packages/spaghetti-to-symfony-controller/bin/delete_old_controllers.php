@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Migrify\MigrationArtefact\SpaghettiToSymfonyController\DataProvider\OldControllerPathsDataProvider;
 use Nette\Utils\FileSystem;
 use Symfony\Component\Finder\Finder;
