@@ -80,6 +80,12 @@ final class OldControllerPathsDataProvider
         return $data;
     }
 
+    private function resolveRoute(string $fileName): string
+    {
+        $matches = Strings::match($fileName, '#(?<route>.*?)\.php$#');
+        return (string) $matches['route'] ?? '';
+    }
+
     private function ensureFileExists(string $oldControllerPathFile): void
     {
         if (file_exists($oldControllerPathFile)) {
@@ -108,11 +114,5 @@ final class OldControllerPathsDataProvider
         );
 
         throw new ShouldNotHappenException($message);
-    }
-
-    private function resolveRoute(string $fileName): string
-    {
-        $matches = Strings::match($fileName, '#(?<route>.*?)\.php$#');
-        return (string) $matches['route'] ?? '';
     }
 }

@@ -1,0 +1,25 @@
+parameters:
+    sets:
+        - 'php70'
+        - 'php71'
+        - 'clean-code'
+        - 'symplify'
+        - 'common'
+        - 'psr12'
+        - 'types'
+        - 'dead-code'
+
+    paths:
+        - 'packages'
+
+    exclude_files:
+        - "*/Source/*"
+        - "*/Expected/*"
+
+    skip:
+        Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenReferenceSniff: null
+
+        # keeps breaking stuff
+        SlevomatCodingStandard\Sniffs\TypeHints\ReturnTypeHintSniff: null
+        SlevomatCodingStandard\Sniffs\TypeHints\ParameterTypeHintSniff: null
+        SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff.MissingNativeTypeHint: null
